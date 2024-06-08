@@ -1,0 +1,31 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TestLocalization/1.0.0": {
+        "runtime": {
+          "TestLocalization.dll": {}
+        },
+        "resources": {
+          "en/TestLocalization.resources.dll": {
+            "locale": "en"
+          },
+          "th/TestLocalization.resources.dll": {
+            "locale": "th"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestLocalization/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
