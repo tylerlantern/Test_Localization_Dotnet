@@ -12,26 +12,39 @@ builder.Services.AddLocalization(
     options => { options.ResourcesPath = "Resources"; }
     );
 
+
+
+/* builder.Services.Configure<RequestLocalizationOptions>(options => */
+/* { */
+/*     var cultures = new List<CultureInfo>() { */
+/*         new CultureInfo("en"), */
+/*         new CultureInfo("th") */
+/*     }; */
+/*     options.SupportedCultures = cultures; */
+/*     options.SupportedUICultures = cultures; */
+/*     options.RequestCultureProviders = new List<IRequestCultureProvider>() { */
+/*         new QueryStringRequestCultureProvider(), */
+/*         new CookieRequestCultureProvider(), */
+/*         new AcceptLanguageHeaderRequestCultureProvider() */
+/*     }; */
+/**/
+/* }); */
+
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    var cultures = new List<CultureInfo>() {
+    var supportedCultures = new[]
+    {
         new CultureInfo("en"),
-        new CultureInfo("th")
+        new CultureInfo("fr")
     };
-    options.SupportedCultures = cultures;
-    options.SupportedUICultures = cultures;
+
+    options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
     options.RequestCultureProviders = new List<IRequestCultureProvider>() {
-        new QueryStringRequestCultureProvider(),
-        new CookieRequestCultureProvider(),
         new AcceptLanguageHeaderRequestCultureProvider()
     };
-
-    /* var supportedCultures = new[] { "en", "th" }; */
-    /* options.SetDefaultCulture(supportedCultures[0]) */
-    /*        .AddSupportedCultures(supportedCultures) */
-    /*        .AddSupportedUICultures(supportedCultures); */
 });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
